@@ -68,6 +68,9 @@ func generateNumber() (n numbers) {
 	if n.signs[1] == plus && n.values[0]+n.values[2] > maxResult {
 		return generateNumber()
 	}
+	if n.signs[0] == minus && n.values[0] < n.values[1] {
+		return generateNumber()
+	}
 	return n
 }
 
@@ -136,6 +139,6 @@ func main() {
 	}
 	fmt.Println("\n\n_______________")
 	fmt.Println("Количество правильных ответов : ", positive)
-	fmt.Println("количество неправильных ответов : ", len(summaryResult)-positive)
+	fmt.Println("Количество неправильных ответов : ", len(summaryResult)-positive)
 
 }
